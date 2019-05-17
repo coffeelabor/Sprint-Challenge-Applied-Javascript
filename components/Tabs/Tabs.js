@@ -2,7 +2,7 @@ class TabLink {
   constructor(tabElement) {
     // assign this.tabElement to the tabElement DOM reference
     this.tabElement = tabElement;
-    console.log(this.tabElement);
+    // console.log(this.tabElement);
 
     // Get the `data-tab` value from this.tabElement and store it here
 
@@ -16,12 +16,14 @@ class TabLink {
     if (this.tabData === document.querySelector(`.tab[data-tab=${"all"}]`)) {
       // If `all` is true, select all cards regardless of their data attribute values
       this.cards = document.querySelectorAll(".card");
+      console.log("inside all tab");
     } else {
       // else if `all` is false, only select the cards with matching this.tabData values
       this.cards = document.querySelector(`.card[data-tab='${this.tabData}']`);
+      console.log("inside specific tab");
     }
     // ########################################################################
-    // console.log(this.cards);
+    console.log(this.cards);
     // Map over the newly converted NodeList we just created in our if statement above.
     // Convert each this.cards element into a new instance of the TabCard class.
     // Pass in a card object to the TabCard class.
