@@ -13,7 +13,8 @@ class TabLink {
 
     // Check to see if this.tabData is equal to 'all'
     // #################################################################
-    if (this.tabData === document.querySelector(`.tab[data-tab=${"all"}]`)) {
+    let all = "all";
+    if (this.tabData === document.querySelector(`.tab[data-tab=${all}]`)) {
       // If `all` is true, select all cards regardless of their data attribute values
       this.cards = document.querySelectorAll(".card");
       console.log("inside all tab");
@@ -28,7 +29,7 @@ class TabLink {
     // Convert each this.cards element into a new instance of the TabCard class.
     // Pass in a card object to the TabCard class.
     // #################################################################
-    // this.cards = Array.from(this.cards).map(card => new TabCard(card));
+    this.cards = Array.from(this.cards).map(card => new TabCard(card));
     // #################################################################
     // Add a click event that invokes this.selectTab
     this.tabElement.addEventListener("click", () => this.selectTab());
